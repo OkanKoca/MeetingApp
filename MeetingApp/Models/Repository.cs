@@ -9,7 +9,7 @@
             {
                 Id = 1,
                 Name = "okok",
-                Phone = "5466606715",
+                Phone = "5474558715",
                 Email = "Oasfasf@gmail.com",
                 WillAttend = true
             });
