@@ -5,7 +5,7 @@ namespace MeetingApp.Controllers
 {
     public class MeetingController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Thanks()
         {
             return View();
         }
@@ -14,29 +14,33 @@ namespace MeetingApp.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Apply(string Name, string Phone, string Email, bool WillAttend)
-        //{
-        //    Console.WriteLine(Name);
-        //    Console.WriteLine(Phone);
-        //    Console.WriteLine(Email);
-        //    Console.WriteLine(WillAttend);
-
-        //    return View();
-        //}
-
         [HttpPost]
         public IActionResult Apply(UserInfo user)
         {
-            Console.WriteLine(user.Name);
-            Console.WriteLine(user.Phone);
-            Console.WriteLine(user.Email);
-            Console.WriteLine(user.WillAttend);
-            return View();
+            //Console.WriteLine(user.Name);
+            //Console.WriteLine(user.Phone);
+            //Console.WriteLine(user.Email);
+            //Console.WriteLine(user.WillAttend);
+
+            if (ModelState.IsValid)
+            {
+                Repository.CreateUser(user);
+                ViewBag.UserCount = Repository.Users.Where(info => info.WillAttend == true).Count();
+                return View("Thanks", user);
+            }
+            else
+            {
+                return View();
+            }
         }
         public IActionResult List()
         {
-            return View();
+            return View(Repository.Users);
+        }
+        [Route("meeting/details/{id}")]
+        public IActionResult Details(int id)
+        {
+            return View(Repository.getById(id));
         }
     }
 }

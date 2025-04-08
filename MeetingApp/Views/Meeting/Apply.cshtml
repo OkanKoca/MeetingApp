@@ -6,6 +6,7 @@
 <h1 class="h4 text-center">Toplantı Başvuru Formu</h1>
 <p>Toplantıya katılmak için lütfen aşağıdaki bilgileri doldurun.</p>
 <form method="post">
+	<div asp-validation-summary="All"></div>
 	<div class="mb-3">
 		<label asp-for ="Name" class="form-label">Full Name</label>
 		<input asp-for = "Name" placeholder="Your Full Name" class="form-control" />

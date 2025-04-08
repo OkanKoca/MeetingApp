@@ -1,0 +1,19 @@
+﻿@{
+	ViewBag.Title = "Toplantı Özeti";
+}
+@model MeetingApp.Models.UserInfo
+
+<main class="text-center">
+	<h1 class="h4">Başvuru Durumu</h1>
+
+@if (Model.WillAttend)
+{
+	<p>Thanks, @Model.Name for attending meeting. There are totally @ViewBag.UserCount people who will attend included you.</p>
+	<a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="List">Katılımcıları Listele</a>
+}
+else
+{
+	<p>@Model.Name, we are sorry because you won't attend</p>
+	<a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Apply</a>
+}
+</main>
