@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MeetingApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MeetingApp.Controllers
 {
@@ -10,6 +11,27 @@ namespace MeetingApp.Controllers
         }
         public IActionResult Apply()
         {
+            return View();
+        }
+
+        //[HttpPost]
+        //public IActionResult Apply(string Name, string Phone, string Email, bool WillAttend)
+        //{
+        //    Console.WriteLine(Name);
+        //    Console.WriteLine(Phone);
+        //    Console.WriteLine(Email);
+        //    Console.WriteLine(WillAttend);
+
+        //    return View();
+        //}
+
+        [HttpPost]
+        public IActionResult Apply(UserInfo user)
+        {
+            Console.WriteLine(user.Name);
+            Console.WriteLine(user.Phone);
+            Console.WriteLine(user.Email);
+            Console.WriteLine(user.WillAttend);
             return View();
         }
         public IActionResult List()

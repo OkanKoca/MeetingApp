@@ -1,2 +1,30 @@
-﻿<h1>Toplantı Başvuru Formu</h1>
+﻿@{
+	ViewBag.Title = "Toplantı Başvuru";
+}
+@model MeetingApp.Models.UserInfo
+
+<h1 class="h4 text-center">Toplantı Başvuru Formu</h1>
 <p>Toplantıya katılmak için lütfen aşağıdaki bilgileri doldurun.</p>
+<form method="post">
+	<div class="mb-3">
+		<label asp-for ="Name" class="form-label">Full Name</label>
+		<input asp-for = "Name" placeholder="Your Full Name" class="form-control" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Phone" class="form-label">Phone Number</label>
+		<input asp-for="Phone" placeholder="Your Phone Number" class="form-control" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="Email" class="form-label">Email</label>
+		<input asp-for="Email" placeholder="Your Email Address" class="form-control" />
+	</div>
+	<div class="mb-3">
+		<label asp-for="WillAttend" class="form-label">Attendance Status</label>
+		<select asp-for="WillAttend" class="form-select">
+			<option value="true">I will attend</option>
+			<option value="false">I won't attend</option>
+		</select>
+	</div>
+
+	<button class="btn btn-primary" type="submit">Kaydet</button>
+</form>

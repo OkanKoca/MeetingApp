@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MeetingApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MeetingApp.Controllers
 {
@@ -6,7 +7,15 @@ namespace MeetingApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var meetingInfo = new MeetingInfo()
+            {
+                Id = 1,
+                Location = "Conference Room A",
+                Date = DateTime.Now,
+                NumberOfPeople = 10
+            };
+
+            return View(meetingInfo);
         }
     }
 }
